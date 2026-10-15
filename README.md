@@ -29,3 +29,11 @@ print("Saldo obtido:", saldo)
 • As threads compartilharam a variável saldo.
 R = Sim, As threads compartilham a variável global saldo.
 
+• Mais de uma thread conseguiu ler o mesmo valor antes de outra terminar a atualização.
+R = SIM.
+
+• Depois, diferentes threads gravaram resultados calculados a partir de valores antigos.
+R = Sim, Diferentes threads gravaram resultados calculados a partir de valores antigos.
+
+
+
