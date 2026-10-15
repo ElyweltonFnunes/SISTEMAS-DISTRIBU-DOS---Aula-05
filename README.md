@@ -35,6 +35,11 @@ R = SIM.
 • Depois, diferentes threads gravaram resultados calculados a partir de valores antigos.
 R = Sim, Diferentes threads gravaram resultados calculados a partir de valores antigos.
 
+• O erro não está na fórmula da subtração; está na coordenação do acesso ao recurso compartilhado.
+R = O erro não está na fórmula matemática, mas na falta de sincronização entre as threads.
+
+
+
 • Tivemos uma condição de corrida.
 R = Sim, Tivemos uma condição de corrida (race condition).
 Isso aconteceu porque várias threads acessaram e modificaram a variável compartilhada saldo simultaneamente, sem sincronização.
