@@ -35,5 +35,7 @@ R = SIM.
 • Depois, diferentes threads gravaram resultados calculados a partir de valores antigos.
 R = Sim, Diferentes threads gravaram resultados calculados a partir de valores antigos.
 
-
+• Tivemos uma condição de corrida.
+R = Sim, Tivemos uma condição de corrida (race condition).
+Isso aconteceu porque várias threads acessaram e modificaram a variável compartilhada saldo simultaneamente, sem sincronização.
 
