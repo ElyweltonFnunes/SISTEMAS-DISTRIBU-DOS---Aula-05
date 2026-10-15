@@ -25,3 +25,7 @@ for t in threads:
 
 print("Saldo esperado: 500")
 print("Saldo obtido:", saldo)
+
+• As threads compartilharam a variável saldo.
+R = Sim, As threads compartilham a variável global saldo.
+
