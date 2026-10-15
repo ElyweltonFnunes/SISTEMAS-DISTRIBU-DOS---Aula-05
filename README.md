@@ -1,6 +1,3 @@
-# SISTEMAS-DISTRIBU-DOS---Aula-05
-Concorrência e Sincronização
-
 import threading
 import time
 
@@ -26,17 +23,64 @@ for t in threads:
 print("Saldo esperado: 500")
 print("Saldo obtido:", saldo)
 
-• As threads compartilharam a variável saldo.
-R = Sim, As threads compartilham a variável global saldo.
 
-• Mais de uma thread conseguiu ler o mesmo valor antes de outra terminar a atualização.
-R = SIM.
+import threading
+import time
 
-• Depois, diferentes threads gravaram resultados calculados a partir de valores antigos.
-R = Sim, Diferentes threads gravaram resultados calculados a partir de valores antigos.
+saldo = 1000
+lock = threading.Lock()
 
-• O erro não está na fórmula da subtração; está na coordenação do acesso ao recurso compartilhado.
-R = O erro não está na fórmula matemática, mas na falta de sincronização entre as threads.
+def sacar(valor):
+    global saldo
+
+    with lock:
+        saldo_atual = saldo
+        time.sleep(0.01)
+        saldo = saldo_atual - valor
+
+threads = []
+
+
+print("Saldo esperado: 500")
+print("Saldo obtido:", saldo)
+
+for i in range(10):
+    t = threading.Thread(target=sacar, args=(50,))
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+
+import threading
+import time
+
+estoque = 5
+lock = threading.Lock()
+
+def comprar(cliente):
+    global estoque
+
+    with lock:
+        if estoque > 0:
+            print(cliente, "encontrou", estoque, "unidade(s)")
+            time.sleep(0.5)
+            estoque -= 1
+            print(cliente, "comprou. Restam:", estoque)
+        else:
+            print(cliente, "não conseguiu comprar: estoque esgotado")
+
+clientes = []
+
+for i in range(1, 9):
+    t = threading.Thread(target=comprar, args=(f"Cliente {i}",))
+    clientes.append(t)
+    t.start()
+
+for t in clientes:
+    t.join()
+
+print("Estoque final:", estoque)
 
 
 
